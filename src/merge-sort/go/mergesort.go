@@ -1,19 +1,13 @@
-package main
+package mergesort
 
-import "fmt"
-
-func main() {
-	fmt.Println(mergeSort([]int{10, 8, 9, 6, 7, 4, 5, 2, 3, 1}))
-}
-
-func mergeSort(s []int) []int {
+func MergeSort(s []int) []int {
 	if len(s) == 1 {
 		return s
 	}
-	return merge(mergeSort(s[:len(s)/2]), mergeSort(s[len(s)/2:]))
-}
 
-func merge(l []int, r []int) []int {
+	l := MergeSort(s[:len(s)/2])
+	r := MergeSort(s[len(s)/2:])
+
 	result := []int{}
 	i := 0
 	j := 0
